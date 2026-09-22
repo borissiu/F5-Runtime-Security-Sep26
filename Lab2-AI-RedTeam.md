@@ -149,3 +149,76 @@ Strong defenses include:
 + Re-evaluating risk across the full conversation
 + Separating narrative context from user intent
 + Allowing refusal even under moral pressure
+
+## Running the attack
+During this part of the lab we are not going to actually run the attack.
+
+The time to run an attack is highly dependent on the resources allocated to the inference; therefore, an attack could take from half an hour to multiple hours.
+
+Our inference resources are low.
+## How to run it without running
++ In the main left tab go to Reports ⇒ Run Attack
++ In the Run this campaign section, you can select the attack campaign we have just created.
++ In the Connections we are choosing the inference API or the agent API which is defined when creating the Connections. In our case we would choose genai-azure-openai.
++ WE ARE GOING TO STOP HERE AND CLICK CANCEL
+
+# Viewing the results
+Although we haven’t run the attack ourselves, we will look at the results of an attack that has already run.
++ In the main left tab go to Reports, click on the Full report report name.
+  + 3 different models have been tested: gpt-oss-20b-deepinf, qwen3-32B-deepinfra, llama-33-70B-instruct-turbo-deepinfra
+  + First observe the CASI score for each of the tested models. This score is a composite metric designed to measure the overall security of a model and it is based on the Signature attacks. The higher the number, the more secure the model is.
+  + Scrolling down, you will see the vulnerabilities that have been found and the respective recommendations.
+
++ Observe the Agentic Warfare score. This score, also called ARS ( Agentic Resistance Score ), represents a quantitative measure of an AI system’s defensive strength, rated on a scale of 0 to 100. A higher ARS indicates that a system requires a more sophisticated, persistent, and informed attacker to compromise it.
+  + Now click on View agentic fingerprints
+  + You will see the agentic attack that has been performed with multiple methods.
+  + While this attack has not been succesfull you can clearly see the attack logic and paths taken.
+  + Click on the drop-down under Attacks and compare the approach of each attack type.
+
++ In the main left tab go to Reports, click on the Full on Attack Signatures report name.
+  + Now if you click on View raw data you will get a list of all attacks that have been performed, the prompt, and each individual result.
+
+# F5 CASI Leaderboard
+This is the last part of our lab. We hope you enjoyed it and would like to mention one last topic: the F5 CASI Leaderboard.
+
+The CASI Leaderboard (Comprehensive AI Security Index) is a security-focused ranking of large language models published by F5 Labs. It is designed to help organizations evaluate and compare AI models based not only on performance, but on their resistance to security threats such as prompt injection, jailbreaking, and adversarial misuse.
+
+CASI emphasizes that AI adoption should consider security posture alongside capability, particularly for enterprise and regulated environments.
+
+You can find the F5 CASI Leaderboard at https://www.f5.com/labs/casi.
+
+A detailed explanation of each metric is available at https://www.f5.com/labs/articles/introducing-the-casi-leaderboards
+
+# What CASI Measures
+The CASI Leaderboard evaluates models across several standardized metrics:
+
+## CASI Score
+The primary metric of the leaderboard. It reflects how resistant a model is to known and emerging attack techniques based on extensive red-team testing.
+
+## Performance
+A measure of the model’s general task capability and effectiveness. This ensures security is evaluated in context, rather than in isolation.
+
+## Risk-to-Performance Ratio (RTP)
+A comparative metric that balances security risk against model capability. It helps identify models that offer strong performance without disproportionately high security risk.
+
+## Cost of Security (CoS)
+An estimate of the operational or architectural cost required to achieve an acceptable security level for a given model, relative to its performance.
+
+# How the Leaderboard Is Used
+The CASI Leaderboard typically presents:
++ A ranked list of leading AI models
++ Comparative scores across security and performance metrics
++ Regular updates as new models and attack methods emerge
+The rankings are derived from continuous adversarial testing conducted by F5’s AI security research team.
+
+# Why the CASI Leaderboard Matters
+As AI models become more widely deployed in production systems, security risks increase. The CASI Leaderboard helps organizations:
+
++ Compare AI models using security-first criteria
++ Understand trade-offs between performance, risk, and cost
++ Make more informed decisions for enterprise and high-risk deployments
+
+A higher CASI score indicates stronger resistance to misuse and exploitation, making the leaderboard particularly relevant for security-conscious adopters.
+
+# Summary
+The CASI Leaderboard is an AI security benchmarking framework that shifts the focus from raw performance alone to secure, responsible AI deployment. It provides a structured, transparent way to assess how well AI models stand up to real-world adversarial threats.
