@@ -31,3 +31,5 @@ Once the request is received, F5 AI Guardrails can transform the request to any 
 + The LLM responds and sends the response to F5 AI Guardrails.
 + F5 AI Guardrails scans the response and, if all is good, forwards it to the orchestrator. The response will be transformed to the client-side API spec.
 + The orchestrator replies to the user.
+
+![](/images/inline.png)
