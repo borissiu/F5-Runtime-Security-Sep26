@@ -378,13 +378,15 @@ Let’s start protecting.
 + Next we need to configure what we want to extract from the full context JSON.
   + Click on Pattern Rules ⇒ New rule ⇒ Enter the below values ⇒ Save changes
 
-Object	Value
-Name	Prompt
-Context	request
-API Key	Request
-JSON path	.messages[-1].content
-PATH	.messages[-1].role
-contains	user
+|||
+|---|---|---|
+|Object	|Value|
+|Name	|Prompt|
+|Context	|request|
+|API Key	|Request|
+|JSON path	|.messages[-1].content|
+|PATH	|.messages[-1].role|
+|contains	|user|
 
 + Go back to the Host Config ⇒ in the Request extractors add the Prompt pattern rule ⇒ Save changes
 + Go back to the AI Agent, start a new conversation, and try making it behave like a cat again.
