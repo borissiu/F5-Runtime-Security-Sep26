@@ -433,13 +433,14 @@ items or components of an electronic product
 
 Click on Pattern Rules ⇒ New rule ⇒ Enter the below values ⇒ Save changes
 
-Object	Value
-Name	Response
-Context	response
-API Key	Response
-JSON path	.message.content
-PATH	.message
-exists	enabled
+|Object|Value|
+|---|---|
+|Name	|Response|
+|Context	|response|
+|API Key	|Response|
+|JSON path	|.message.content|
+|PATH	|.message|
+|exists	|enabled|
 
 + Go back to the Host Config ⇒ in the Response extractors add the Response pattern rule ⇒ Save changes
 + Go back to the AI Agent, start a new conversation, and try to exfiltrate the components again.
@@ -476,9 +477,8 @@ Now let’s protect our AI Agent against this type of attack.
 + Next we need to configure what we want to extract from the full context JSON.
   + Click on Pattern Rules ⇒ New rule ⇒ Enter the below values ⇒ Save changes
 
-|||
+|Object|Value|
 |---|---|
-|Object	|Value|
 |Name	|MCP tools definition|
 |Context	|request|
 |API Key	|MCP|
@@ -511,9 +511,8 @@ Now let’s protect our AI Agent against this type of attack.
   + We need to configure what we want to extract from the full context JSON.
   + Click on Pattern Rules ⇒ New rule ⇒ Enter the below values ⇒ Save changes
 
-|||
-|---|---|
 |Object|	Value|
+|---|---|
 |Name|	Tools call|
 |Context|	response|
 |API Key|	MCP|
