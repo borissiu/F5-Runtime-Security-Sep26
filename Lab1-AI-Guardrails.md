@@ -378,8 +378,8 @@ Let’s start protecting.
 + Next we need to configure what we want to extract from the full context JSON.
   + Click on Pattern Rules ⇒ New rule ⇒ Enter the below values ⇒ Save changes
 
-|||
-|---|---|---|
+||
+|---|---|
 |Object	|Value|
 |Name	|Prompt|
 |Context	|request|
