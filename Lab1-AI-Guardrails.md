@@ -135,64 +135,65 @@ This is where the magic starts.
 
 There are three different types of scanners:
 
-Keyword scanner - you can define specific keywords which will trigger the scanner. It can not only block but also redact.
-Regex scanner - you can define specific regex filters which will trigger the scanner. It can not only block but also redact.
-GenAI scanner - this is the real magic: define in natural language what you want to be identified and blocked. We will go in-depth in the next section.
-Keyword scanner
++ Keyword scanner - you can define specific keywords which will trigger the scanner. It can not only block but also redact.
++ Regex scanner - you can define specific regex filters which will trigger the scanner. It can not only block but also redact.
++ GenAI scanner - this is the real magic: define in natural language what you want to be identified and blocked. We will go in-depth in the next section.
+## Keyword scanner
 
 Use exact-word guardrails when:
 
-The word is intentional
-The word is rare
-The word has binary meaning (present = act, absent = ignore)
++ The word is intentional
++ The word is rare
++ The word has binary meaning (present = act, absent = ignore)
 For example, we have internal projects called Phoenix and Scooby Doo, and we want to make sure that if either is referenced, that message will get blocked.
 
-In the main left tab go to Scanners ⇒ Build a custom scanner ⇒ Keyword scanner
-Set the Name to Internal Projects
-In the Keywords enter Phoenix and Scooby Doo
-Click Save ⇒ Save version
-After saving the scanner we find ourselves in the Playground area. Here we can directly test all custom scanners against different text patterns.
++ In the main left tab go to Scanners ⇒ Build a custom scanner ⇒ Keyword scanner
++ Set the Name to Internal Projects
++ In the Keywords enter Phoenix and Scooby Doo
++ Click Save ⇒ Save version
+  + After saving the scanner we find ourselves in the Playground area. Here we can directly test all custom scanners against different text patterns.
 
-Enable Test for the Internal Projects scanner on the right-hand side of the page.
++ Enable Test for the Internal Projects scanner on the right-hand side of the page.
 
-In the message input area of the Playground enter the below text.
++ In the message input area of the Playground enter the below text.
 
 ```
 Project Phoenix has the potential of taking over the world. This information should be kept private by all means and at any cost.
-The previous message was blocked. Enter anything that is not Phoenix or Scooby Doo and the message will pass.
 ```
 
-Regex scanner
++ The previous message was blocked. Enter anything that is not Phoenix or Scooby Doo and the message will pass.
+
+## Regex scanner
 
 Use regex guardrails when:
 
-The value changes, but the format doesn’t
-There are multiple acceptable spellings or layouts
-You need precision and explainability
-You want to block or allow a specific structure
-You’re defending against known attack templates
++ The value changes, but the format doesn’t
++ There are multiple acceptable spellings or layouts
++ You need precision and explainability
++ You want to block or allow a specific structure
++ You’re defending against known attack templates
 For example, we want to ensure that the response does not contain any internal private IPs from our company.
 
-In the main left tab go to Scanners ⇒ Build a custom scanner ⇒ Regex scanner
-Set the Name to Internal IPs
-In the Regular expression enter:
++ In the main left tab go to Scanners ⇒ Build a custom scanner ⇒ Regex scanner
++ Set the Name to Internal IPs
++ In the Regular expression enter:
 
 ```
 (?i)\bhttps?:\/\/(localhost|127\.0\.0\.1|0\.0\.0\.0|10\.(?:\d\d?\d?\.)\d\d?\d?|172\.(?:1[6-9]|2\d|3[0-1])\.(?:\d\d?\d?\.)\d\d?\d?|192\.168\.(?:\d\d?\d?\.)\d\d?\d?)(?::\d+)?(?:\/[^\s]*)?
 ```
 
-Click Save ⇒ Save version
-After saving the scanner we find ourselves in the Playground area. Here we can directly test all custom scanners against different text patterns.
++ Click Save ⇒ Save version
+  + After saving the scanner we find ourselves in the Playground area. Here we can directly test all custom scanners against different text patterns.
 
-Enable Test for the Internal IPs scanner on the right-hand side of the page.
++ Enable Test for the Internal IPs scanner on the right-hand side of the page.
 
-In the message input area of the Playground enter the below text.
++ In the message input area of the Playground enter the below text.
 
 ```
 To access the admin site, use https://192.168.0.1/admin.
 ```
 
-The previous message was blocked. Change the IP to something public like 112.44.223.44 and the message will not be blocked.
++ The previous message was blocked. Change the IP to something public like 112.44.223.44 and the message will not be blocked.
 
 # GenAI scanner
 The GenAI Scanner is a natural-language scanner. What you use when “matching” depends on meaning, intent, or context, not a fixed string/pattern.
