@@ -54,4 +54,4 @@ Using the F5 AI Guardrails Python SDK https://docs.calypsoai.com/api-docs/sendin
 + F5 AI Guardrails responds to the orchestrator after scanning the LLM response with a verdict of allow/block/redact.
 + The orchestrator sends the LLM response to the client.
 
-![](/images/outoband.png)
+![](/images/outofband.png)
