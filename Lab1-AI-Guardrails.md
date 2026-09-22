@@ -58,9 +58,9 @@ The out-of-band scanning can be implemented as follows:
 Now that we have a basic understanding of how F5 AI Guardrails is implemented within an application, let’s start by exploring the console.
 
 + You should receive an email from F5 AI Guardrails (formerly CalypsoAI) invitation for account activation.
-+ The email will be sent from noreply@notify.calypsoai.com.
-+ The email will be sent to youremail+UDF@yourdomain for example gogo+UDF@gmail.com.
-+ If you don’t see your email in your main inbox, please validate if it went to spam folder.
+  + The email will be sent from noreply@notify.calypsoai.com.
+  + The email will be sent to youremail+UDF@yourdomain for example gogo+UDF@gmail.com.
+  + If you don’t see your email in your main inbox, please validate if it went to spam folder.
 
 + Click Activate Your Account in the email to setup your password.
 + Set a password.
