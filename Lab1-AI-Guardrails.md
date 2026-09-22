@@ -3,14 +3,14 @@ F5 AI Guardrails is an enterprise-grade AI runtime security and governance solut
 
 The focus of this module is to understand the deployment options and how to operate the F5 AI Guardrails console.
 
-#General info
+# General info
 There are three options to deploy the F5 AI Guardrails infrastructure.
 
 F5 SaaS where F5 AI Guardrails is already deployed. This is the fastest approach to get things running.
 Self-hosted in the cloud, the solution can be deployed on any of the following environments: EKS (AWS), AKS (Azure), GKE (Google)
 Self-hosted on-premises, the main requirement for F5 to support the installation is that it is performed on Red Hat OpenShift
 
-#Inline implementation
+# Inline implementation
 The first implementation method we are going to explore is inline.
 
 **F5 AI Guardrails** sits in the inference path and enforces policies in real time, forwarding only clean prompts/responses.
