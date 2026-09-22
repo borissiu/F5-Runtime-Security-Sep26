@@ -211,3 +211,35 @@ To access the admin site, use https://192.168.0.1/admin.
 ```
 
 The previous message was blocked. Change the IP to something public like 112.44.223.44 and the message will not be blocked.
+
+# GenAI scanner
+The GenAI Scanner is a natural-language scanner. What you use when “matching” depends on meaning, intent, or context, not a fixed string/pattern.
+
+For example, if we want to make sure that a person’s specific salary is not leaked but still allow questions about general salary information, we would need to build a GenAI scanner.
+
+In the main left tab go to Scanners ⇒ Build a custom scanner ⇒ GenAI scanner
+Set the Name to Specific Salaries
+In the Description enter individual salary information
+Click Save ⇒ Save version
+After saving the scanner we find ourselves in the Playground area. Here we can directly test all custom scanners against different text patterns.
+
+Enable Test for the Specific Salaries scanner on the right-hand side of the page.
+
+In the message input area of the Playground enter the text below. This will get blocked because it is a response with someone’s salary.
+
+```
+Your manager makes $1000000 a year.
+```
+
+Now try the below. This will not be blocked because it is an average.
+
+```
+The average salary in the HR department is $500000 a year.
+```
+
+The scanner has contextual awareness, even though the response mentioned an average the response specifies that there is only one person. This will get blocked.
+
+```
+The average salary in the HR department is $500000 a year. There is only one person in the HR department.
+```
+
