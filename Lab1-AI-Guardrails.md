@@ -6,9 +6,9 @@ The focus of this module is to understand the deployment options and how to oper
 # General info
 There are three options to deploy the F5 AI Guardrails infrastructure.
 
-1. F5 SaaS where F5 AI Guardrails is already deployed. This is the fastest approach to get things running.
-2. Self-hosted in the cloud, the solution can be deployed on any of the following environments: EKS (AWS), AKS (Azure), GKE (Google)
-3. Self-hosted on-premises, the main requirement for F5 to support the installation is that it is performed on Red Hat OpenShift
++ F5 SaaS where F5 AI Guardrails is already deployed. This is the fastest approach to get things running.
++ Self-hosted in the cloud, the solution can be deployed on any of the following environments: EKS (AWS), AKS (Azure), GKE (Google)
++ Self-hosted on-premises, the main requirement for F5 to support the installation is that it is performed on Red Hat OpenShift
 
 # Inline implementation
 The first implementation method we are going to explore is inline.
@@ -16,7 +16,6 @@ The first implementation method we are going to explore is inline.
 **F5 AI Guardrails** sits in the inference path and enforces policies in real time, forwarding only clean prompts/responses.
 
 The HTTPS connection will be terminated by F5 AI Guardrails and recreated toward the backend inference endpoint.
-
 The traffic reaching the F5 AI Guardrails endpoint needs to conform to one of the following specs:
 
 + The **F5 AI Guardrails** API spec detailed here https://docs.calypsoai.com/operations/post_prompts.html or by using the F5 AI Guardrails Python SDK https://docs.calypsoai.com/api-docs/sending-prompt-specific-provider.html
@@ -24,7 +23,6 @@ The traffic reaching the F5 AI Guardrails endpoint needs to conform to one of th
 Once the request is received, F5 AI Guardrails can transform the request to any inference spec from OpenAI, Ollama, Hugging Face, and more.
 
 ## Traffic Flow
-
 + The user sends a prompt to the orchestrator.
 + The orchestrator builds the full context and sends the API call to **F5 AI Guardrails**.
 + F5 AI Guardrails scans the prompt and, if all is good, forwards it to the LLM inference endpoint. The request will also be transformed when forwarded to the configured inference spec.
@@ -41,10 +39,10 @@ The AI application developers will need to integrate into their logic to send th
 
 The out-of-band scanning can be implemented as follows:
 
-Implementing an API call that follows the following spec https://docs.calypsoai.com/operations/post_scans.html
-Using the F5 AI Guardrails Python SDK https://docs.calypsoai.com/api-docs/sending-scan-request-specific-project.html
-## Traffic Flow
++ Implementing an API call that follows the following spec https://docs.calypsoai.com/operations/post_scans.html
++ Using the F5 AI Guardrails Python SDK https://docs.calypsoai.com/api-docs/sending-scan-request-specific-project.html
 
+## Traffic Flow
 + The user sends a prompt to the orchestrator.
 + The orchestrator sends the user prompt to F5 AI Guardrails for inspection.
 + F5 AI Guardrails responds to the orchestrator after scanning the user prompt with a verdict of allow/block/redact.
@@ -59,21 +57,16 @@ Using the F5 AI Guardrails Python SDK https://docs.calypsoai.com/api-docs/sendin
 # F5 AI Guardrails Console
 Now that we have a basic understanding of how F5 AI Guardrails is implemented within an application, let’s start by exploring the console.
 
-You should receive an email from F5 AI Guardrails (formerly CalypsoAI) invitation for account activation.
++ You should receive an email from F5 AI Guardrails (formerly CalypsoAI) invitation for account activation.
++ The email will be sent from noreply@notify.calypsoai.com.
++ The email will be sent to youremail+UDF@yourdomain for example gogo+UDF@gmail.com.
++ If you don’t see your email in your main inbox, please validate if it went to spam folder.
 
-The email will be sent from noreply@notify.calypsoai.com.
++ Click Activate Your Account in the email to setup your password.
++ Set a password.
 
-The email will be sent to youremail+UDF@yourdomain for example gogo+UDF@gmail.com.
-
-If you don’t see your email in your main inbox, please validate if it went to spam folder.
-
-Click Activate Your Account in the email to setup your password.
-
-Set a password.
-
-You should get redirected to the login portal, in case you aren’t you can access it through this link https://www.us2.calypsoai.app/
-
-Login with your credetials. The email address needs to look like youremail+UDF@yourdomain for example gogo+UDF@gmail.com.
++ You should get redirected to the login portal, in case you aren’t you can access it through this link https://www.us2.calypsoai.app/
++ Login with your credetials. The email address needs to look like youremail+UDF@yourdomain for example gogo+UDF@gmail.com.
 
 When deploying a model inline (not needed for out-of-band) we need to point F5 AI Guardrails to a backend inference server.
 
