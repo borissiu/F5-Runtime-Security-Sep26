@@ -33,3 +33,25 @@ Once the request is received, F5 AI Guardrails can transform the request to any 
 + The orchestrator replies to the user.
 
 ![](/images/inline.png)
+
+# Out-of-Band implementation
+The Out-of-Band implementation is the most flexible, but it requires the AI application to call F5 AI Guardrails programmatically for scanning without altering its primary flow.
+
+The AI application developers will need to integrate into their logic to send the required content to F5 AI Guardrails for inspection. This is relevant for both the request and the response.
+
+The out-of-band scanning can be implemented as follows:
+
+Implementing an API call that follows the following spec https://docs.calypsoai.com/operations/post_scans.html
+Using the F5 AI Guardrails Python SDK https://docs.calypsoai.com/api-docs/sending-scan-request-specific-project.html
+## Traffic Flow
+
++ The user sends a prompt to the orchestrator.
++ The orchestrator sends the user prompt to F5 AI Guardrails for inspection.
++ F5 AI Guardrails responds to the orchestrator after scanning the user prompt with a verdict of allow/block/redact.
++ The orchestrator forwards the full context to the inference endpoint.
++ The LLM sends back the response to the orchestrator.
++ The orchestrator sends the LLM response to F5 AI Guardrails for inspection.
++ F5 AI Guardrails responds to the orchestrator after scanning the LLM response with a verdict of allow/block/redact.
++ The orchestrator sends the LLM response to the client.
+
+![](/images/outoband.png)
