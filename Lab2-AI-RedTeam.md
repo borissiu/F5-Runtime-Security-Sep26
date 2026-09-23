@@ -1,16 +1,16 @@
-# F5 AI Red Team
+# 1. F5 AI Red Team
 Even before protecting a GenAI application, we need to understand how vulnerable it is.
 
 F5 AI Red Team is a structured methodology combining human expertise with automation and AI tools to uncover safety (of users), security (of operators), trust (by users and partners), and performance gaps in systems that incorporate GenAI components. It involves simulating adversarial behaviors against Generative AI systems—like LLMs—to uncover vulnerabilities related to security, safety, and trust. By “thinking like an attacker,” flaws can be identified before they cause real-world harm.
 
-# Overview
+# 2. Overview
 F5 AI Red Team module integrates with systems directly through REST endpoints. By treating the target system as an API-exposed service, the Red Team can launch controlled adversarial campaigns against model endpoints, AI-powered applications, or agent gateways.
 
 F5 AI Red Team acts as an orchestrator that generates adversarial prompts or attack scenarios and communicates with the target system via HTTPS REST requests. The target system processes the request, whether it’s a direct model endpoint, an AI-powered application, or a RAG gateway, and returns a response. That response is then evaluated by the Red Team’s LLM-based evaluator against predefined policies and criteria. Finally, structured findings are produced and made available through the Reporting UI, via API, or delivered to a webhook endpoint.
 
 This flow ensures that any system exposing a REST API can be tested without major architectural changes or complex integration work.
 
-# Connecting to the app
+# 3. Connecting to the app
 The first step to implement F5 AI Red Team is to define the endpoint we are testing. That can either be the inference API of a model or the API of an Agent.
 
 In the main left tab go to Connections, observe all the built-in inference endpoints that we can connect to. You can also see the Ollama inference which has been preconfigured.
@@ -19,7 +19,7 @@ Click on Manage on the Openai Compatible row. Click on the three dots on the gen
 
 You can observe the configuration we have created in order to connect to the model on the Azure OpenAI inference endpoint.
 
-# The Attack Campaign
+# 4. The Attack Campaign
 This element allows the Red Team to behave less like a static scanner and more like a human attacker.
 
 Users select attack sets (Standard, Agentic, or both) and configure them appropriately by selecting the desired attack sets to run or by configuring the Custom Intent for the agents.
@@ -162,7 +162,7 @@ Our inference resources are low.
 + In the Connections we are choosing the inference API or the agent API which is defined when creating the Connections. In our case we would choose genai-azure-openai.
 + WE ARE GOING TO STOP HERE AND CLICK CANCEL
 
-# Viewing the results
+# 5. Viewing the results
 Although we haven’t run the attack ourselves, we will look at the results of an attack that has already run.
 + In the main left tab go to Reports, click on the Full report report name.
   + 3 different models have been tested: gpt-oss-20b-deepinf, qwen3-32B-deepinfra, llama-33-70B-instruct-turbo-deepinfra
@@ -178,7 +178,7 @@ Although we haven’t run the attack ourselves, we will look at the results of a
 + In the main left tab go to Reports, click on the Full on Attack Signatures report name.
   + Now if you click on View raw data you will get a list of all attacks that have been performed, the prompt, and each individual result.
 
-# F5 CASI Leaderboard
+# 6. F5 CASI Leaderboard
 This is the last part of our lab. We hope you enjoyed it and would like to mention one last topic: the F5 CASI Leaderboard.
 
 The CASI Leaderboard (Comprehensive AI Security Index) is a security-focused ranking of large language models published by F5 Labs. It is designed to help organizations evaluate and compare AI models based not only on performance, but on their resistance to security threats such as prompt injection, jailbreaking, and adversarial misuse.
@@ -189,7 +189,7 @@ You can find the F5 CASI Leaderboard at https://www.f5.com/labs/casi.
 
 A detailed explanation of each metric is available at https://www.f5.com/labs/articles/introducing-the-casi-leaderboards
 
-# What CASI Measures
+# 7. What CASI Measures
 The CASI Leaderboard evaluates models across several standardized metrics:
 
 ## CASI Score
@@ -204,14 +204,14 @@ A comparative metric that balances security risk against model capability. It he
 ## Cost of Security (CoS)
 An estimate of the operational or architectural cost required to achieve an acceptable security level for a given model, relative to its performance.
 
-# How the Leaderboard Is Used
+# 8. How the Leaderboard Is Used
 The CASI Leaderboard typically presents:
 + A ranked list of leading AI models
 + Comparative scores across security and performance metrics
 + Regular updates as new models and attack methods emerge
 The rankings are derived from continuous adversarial testing conducted by F5’s AI security research team.
 
-# Why the CASI Leaderboard Matters
+# 9. Why the CASI Leaderboard Matters
 As AI models become more widely deployed in production systems, security risks increase. The CASI Leaderboard helps organizations:
 
 + Compare AI models using security-first criteria
@@ -220,5 +220,5 @@ As AI models become more widely deployed in production systems, security risks i
 
 A higher CASI score indicates stronger resistance to misuse and exploitation, making the leaderboard particularly relevant for security-conscious adopters.
 
-# Summary
+# 10. Summary
 The CASI Leaderboard is an AI security benchmarking framework that shifts the focus from raw performance alone to secure, responsible AI deployment. It provides a structured, transparent way to assess how well AI models stand up to real-world adversarial threats.
